@@ -33,6 +33,7 @@ class UI():
         self.screen = pygame.display.get_surface()
         self.font = pygame.font.Font(None, 32)
         self.title_surf = self.font.render("TicTacToe", True, (0, 55, 55))
+        self.play_text_surf = self.font.render("Press Enter to start", True, (0,0,0))
         self.squares = pygame.sprite.Group()
         self.background = pygame.image.load('Graphics\Backgrounds\Background.png')
         self.background_rect = self.background.get_rect(topleft = (0,0))
@@ -43,7 +44,7 @@ class UI():
     def title_screen(self):
         self.screen.blit(self.background, self.background_rect)
         self.screen.blit(self.title_surf, ((self.screen.get_width()/2)-self.title_surf.get_width()/2,(self.screen.get_height()/8)-self.title_surf.get_height()/2))
-        self.play_button = pygame.draw.rect(self.screen, (0, 0, 0), [(self.screen.get_width()/2)-(self.screen.get_width()/8)/2, (self.screen.get_height()/2)-(self.screen.get_height()/8)/2, self.screen.get_width()/8, self.screen.get_height()/8])
+        self.screen.blit(self.play_text_surf, ((self.screen.get_width()/2-self.play_text_surf.get_width()/2, self.screen.get_height()/2)))
     
     def game(self):
         self.screen.blit(self.background, self.background_rect)
